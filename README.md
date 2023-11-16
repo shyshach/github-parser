@@ -1,5 +1,14 @@
 ## Test task
 
+### Coverage:
+
+    Name          Stmts   Miss  Cover   Missing
+    -------------------------------------------
+    main.py          48      3    94%   45-46, 62
+    test_api.py      43      3    93%   9, 14, 19
+    -------------------------------------------
+    TOTAL            91      6    93%
+
 ### Prerequisites 
 - Python 3.8
 ### How to run:
@@ -8,6 +17,10 @@ Run next commands in project root
 - . env/bin/activate (then (env) should appear on left part of terminal)
 - pip install -r requirements.txt
 - uvicorn main:app --reload --port 5050
+
+To run pytest unit tests: 
+- coverage run -m pytest
+- coverage report -m
 
 Go to http://127.0.0.1:5050/docs#/default/get_github_info_get_github_links_post
 
@@ -159,4 +172,4 @@ Example response :
 
 ## TODO list
 - add response models
-- add unit tests
+

@@ -1,7 +1,7 @@
 import urllib.parse
 import urllib3
 
-from fastapi import FastAPI, Depends, Body
+from fastapi import FastAPI, Depends, Body, HTTPException
 from pydantic import BaseModel
 from bs4 import BeautifulSoup
 import random
@@ -30,9 +30,7 @@ def get_main_page_links(soup):
 
 
 def get_proxy(parameters=Body()):
-    http = urllib3.PoolManager()
-    return http
-    proxy = random.choice(parameters.proxies)
+    proxy = random.choice(parameters.get("proxies", "127.0.0.1"))
     http = urllib3.ProxyManager(f"http://{proxy}")
     return http
 
@@ -52,13 +50,16 @@ def get_repo_details(proxy, url_dict):
 
 
 @app.post("/get_github_links")
-async def get_github_info(parameters: SearchParameters, proxy=Depends(get_proxy)):
+def get_github_info(parameters: SearchParameters, proxy=Depends(get_proxy)):
     """
     Get search results for query from GitHub
     - **keywords**: List of keywords to search by
     - **proxies**: List of proxies IP-addresses
     - **type**: Type of search
     """
+    allowed_search_types = ["Repositories", "Issues", "Wikis"]
+    if parameters.search_type not in allowed_search_types:
+        raise HTTPException(status_code=422, detail="Invalid search type")
     search_query = urllib.parse.quote_plus("".join(parameters.keywords))
     url = f"https://github.com/search?q={search_query}&type={parameters.search_type}"
 
