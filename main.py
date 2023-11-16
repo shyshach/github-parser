@@ -68,7 +68,7 @@ async def get_github_info(parameters: SearchParameters, proxy=Depends(get_proxy)
     result = get_main_page_links(soup)
     if parameters.search_type == "Repositories":
         with concurrent.futures.ThreadPoolExecutor() as executor:
-            futures = [executor.submit(get_repo_details, proxy, link_dict) for link_dict in result_links]
+            futures = [executor.submit(get_repo_details, proxy, link_dict) for link_dict in result]
             concurrent.futures.wait(futures)
 
     return result
