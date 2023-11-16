@@ -30,6 +30,8 @@ def get_main_page_links(soup):
 
 
 def get_proxy(parameters=Body()):
+    http = urllib3.PoolManager()
+    return http
     proxy = random.choice(parameters.proxies)
     http = urllib3.ProxyManager(f"http://{proxy}")
     return http
@@ -63,10 +65,10 @@ async def get_github_info(parameters: SearchParameters, proxy=Depends(get_proxy)
     html = proxy.request("GET", url)
     soup = BeautifulSoup(html.data, "html.parser")
 
-    result_links = get_main_page_links(soup)
+    result = get_main_page_links(soup)
     if parameters.search_type == "Repositories":
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [executor.submit(get_repo_details, proxy, link_dict) for link_dict in result_links]
             concurrent.futures.wait(futures)
 
-    return result_links
+    return result
