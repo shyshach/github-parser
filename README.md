@@ -4,10 +4,10 @@
 
     Name          Stmts   Miss  Cover   Missing
     -------------------------------------------
-    main.py          48      3    94%   45-46, 62
-    test_api.py      43      3    93%   9, 14, 19
+    main.py          68      5    93%   22, 24, 30, 74-75
+    test_api.py      58      2    97%   12, 17
     -------------------------------------------
-    TOTAL            91      6    93%
+    TOTAL           126      7    94%
 
 ### Prerequisites 
 - Python 3.8
