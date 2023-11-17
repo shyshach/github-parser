@@ -58,7 +58,7 @@ Example response :
               "HTML": "0.6%"
             }
           ],
-          "author": "leitbogioro"
+          "owner": "leitbogioro"
         }
       },
       {
@@ -69,7 +69,7 @@ Example response :
               "Java": "100.0%"
             }
           ],
-          "author": "fangjian0423"
+          "owner": "fangjian0423"
         }
       },
       {
@@ -80,14 +80,14 @@ Example response :
               "C++": "100.0%"
             }
           ],
-          "author": "sksalahuddin2828"
+          "owner": "sksalahuddin2828"
         }
       },
       {
         "url": "https://github.com/3c/share",
         "extra": {
           "language_stats": [],
-          "author": "3c"
+          "owner": "3c"
         }
       },
       {
@@ -98,7 +98,7 @@ Example response :
               "Java": "100.0%"
             }
           ],
-          "author": "sksalahuddin2828"
+          "owner": "sksalahuddin2828"
         }
       },
       {
@@ -109,7 +109,7 @@ Example response :
               "Python": "100.0%"
             }
           ],
-          "author": "sksalahuddin2828"
+          "owner": "sksalahuddin2828"
         }
       },
       {
@@ -126,7 +126,7 @@ Example response :
               "CSS": "0.5%"
             }
           ],
-          "author": "sksalahuddin2828"
+          "owner": "sksalahuddin2828"
         }
       },
       {
@@ -137,7 +137,7 @@ Example response :
               "C#": "100.0%"
             }
           ],
-          "author": "sksalahuddin2828"
+          "owner": "sksalahuddin2828"
         }
       },
       {
@@ -151,7 +151,7 @@ Example response :
               "HTML": "0.3%"
             }
           ],
-          "author": "sksalahuddin2828"
+          "owner": "sksalahuddin2828"
         }
       },
       {
@@ -165,7 +165,7 @@ Example response :
               "JavaScript": "35.0%"
             }
           ],
-          "author": "csstools"
+          "owner": "csstools"
         }
       }
     ]
